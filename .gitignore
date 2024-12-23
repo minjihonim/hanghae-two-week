@@ -36,11 +36,3 @@ out/
 
 ### VS Code ###
 .vscode/
-
-
-### commit controll ###
-src/main/java/org/prac/clean/api/controller/*
-src/main/java/org/prac/clean/application/*
-src/main/java/org/prac/clean/domain/*
-src/main/java/org/prac/clean/infrastructure/*
-src/test/java/*
