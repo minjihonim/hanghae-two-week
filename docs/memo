@@ -1,0 +1,2 @@
+//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)    // 임베디드 데이터 베이스를 사용 안한다는 선언.
+//@TestPropertySource(locations = "classpath:application-test.properties")
