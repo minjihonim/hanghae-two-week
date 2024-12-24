@@ -1,10 +1,10 @@
 package org.prac.clean.api.controller;
 
 import org.prac.clean.application.lecture.LectureFacade;
-import org.prac.clean.domain.Lecture;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.prac.clean.common.vo.RequestVO;
+import org.prac.clean.common.vo.ResponseVO;
+import org.prac.clean.domain.lecture.entity.Lecture;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +26,13 @@ public class LectureController {
     @GetMapping("/api/lecture/list")
     public List<Lecture> getLectureList(@RequestParam("registerDate") String registerDate) {
         return lectureFacade.getLectureList(registerDate);
+    }
+
+    /**
+     * 특강 신청 API
+     */
+    @PostMapping("/api/lecture/application")
+    public ResponseVO applyToLecture(@RequestBody RequestVO req)  throws Exception {
+        return lectureFacade.applyToLecture(req);
     }
 }

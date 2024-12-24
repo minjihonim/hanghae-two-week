@@ -1,17 +1,22 @@
-package org.prac.clean.domain;
+package org.prac.clean.domain.lecture.entity;
 
-
+import jakarta.persistence.*;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "tb_lecture")
 @Getter @Setter
 @Builder
 public class Lecture {
-    
-    // 특강 일련번호
+
+    // 특강 일련번호 PK
+    @Column(nullable = false, name = "id")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     // 특강명
@@ -21,9 +26,11 @@ public class Lecture {
     private String speaker;
 
     // 참석자
+    @Column(nullable = false, name = "attendee_count")
     private int attendeeCount;
 
     // 신청 마감일
+    @Column(name = "dead_line_date")
     private LocalDate deadLineDate;
 
     public Lecture(long id, String name, String speaker, int attendeeCount, LocalDate deadLineDate) {
