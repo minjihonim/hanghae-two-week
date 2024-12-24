@@ -29,6 +29,7 @@ public class LectureService {
     private final UserLectureRecordRepository userLectureRecordRepository;
     private static final ModelMapper modelMapper = new ModelMapper();
 
+    @Transactional(readOnly = true)
     public List<Lecture> getLectureList(String registerDate) {
         // 문자열 -> 날짜 데이터 변환
         LocalDate parseRegisterDate = getDate(registerDate);
@@ -41,6 +42,11 @@ public class LectureService {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * String -> LocalDate 변환
+     * @param registerDate
+     * @return
+     */
     private static LocalDate getDate(String registerDate) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
         LocalDate parseDate = LocalDate.parse(registerDate, formatter);

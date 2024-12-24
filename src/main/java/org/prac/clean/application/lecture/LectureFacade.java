@@ -23,7 +23,6 @@ public class LectureFacade {
      * @param registerDate
      * @return
      */
-    @Transactional(readOnly = true)
     public List<Lecture> getLectureList(String registerDate) {
         return lectureService.getLectureList(registerDate);
     }
